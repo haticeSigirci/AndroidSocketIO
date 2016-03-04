@@ -1,0 +1,38 @@
+<!DOCTYPE html>  
+<html>  
+    <head>
+        <script src="http://localhost:7070/socket.io/socket.io.js">
+        </script>
+    <script>
+  
+    window.onload = function() {
+
+        try {
+
+            var socket = io.connect("http://localhost:7070");
+
+            socket.on("chat", function(data) {
+                document.write(data.name1);
+                
+            });
+
+
+            socket.on("helo", function(data) {
+                document.write(data.msg);
+               
+            });
+
+           
+        }
+        catch (e) {
+            console.log("exception occurred");
+            console.log(e);
+        }
+
+     }
+    </script>
+    </head>
+    <body>
+
+    </body>
+</html>  
